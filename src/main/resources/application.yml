@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: study308
+
+  datasource:
+    url: jdbc:mysql://localhost:3309/jwbook?serverTimezone=UTC
+    username: root
+    password: 1111
+
+  jpa:
+    hibernate:
+      ddl-auto: update

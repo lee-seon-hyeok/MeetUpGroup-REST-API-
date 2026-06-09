@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ArticleResponse {
-	private long id;
+	private Long id;
 	private String title;
 	private String content;
 
