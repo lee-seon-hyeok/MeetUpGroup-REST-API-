@@ -70,8 +70,8 @@ textarea { min-height: 110px; resize: vertical; margin-bottom: 10px; }
 .btn-outline { background: #fff; color: #243248; }
 .btn:hover { filter: brightness(.98); }
 
-.chart-card { min-height: 330px; }
-.chart-card canvas { width: 100%; height: 260px; }
+.chart-card { height: 330px; overflow: hidden; }
+.chart-card canvas { display: block; width: 100% !important; height: 260px !important; max-height: 260px; }
 .detail-panel { position: sticky; top: 18px; display: grid; gap: 12px; }
 .detail-panel dl { display: grid; gap: 8px; }
 .detail-panel dt { color: var(--muted); font-size: 13px; }

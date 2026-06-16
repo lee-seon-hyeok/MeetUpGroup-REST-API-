@@ -1,13 +1,17 @@
 function makeChart(id, type, labels, data, label) {
   const canvas = document.getElementById(id);
   if (!canvas || !window.Chart) return;
-  new Chart(canvas, {
+  if (canvas._chartInstance) canvas._chartInstance.destroy();
+  canvas.height = 260;
+  canvas.style.height = "260px";
+  canvas.style.maxHeight = "260px";
+  canvas._chartInstance = new Chart(canvas, {
     type,
     data: {
       labels,
       datasets: [{ label, data, borderColor: "#2563eb", backgroundColor: ["#dbeafe", "#ccfbf1", "#fee2e2", "#fef3c7", "#e0e7ff", "#dcfce7"], borderWidth: 2, tension: 0.35 }]
     },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: type !== "bar" } }, scales: type === "doughnut" ? {} : { y: { beginAtZero: true } } }
+    options: { responsive: true, maintainAspectRatio: false, resizeDelay: 120, plugins: { legend: { display: type !== "bar" } }, scales: type === "doughnut" ? {} : { y: { beginAtZero: true } } }
   });
 }
 
