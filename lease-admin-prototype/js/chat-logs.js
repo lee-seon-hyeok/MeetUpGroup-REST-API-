@@ -1,0 +1,6 @@
+setContent(`<section class="split-layout"><article class="panel"><div class="filter-row"><input id="q" placeholder="고객명, 질문 검색"><select><option>처리 결과 전체</option><option>자동 처리 완료</option><option>상담사 연결</option></select></div>${table(["상담 ID","고객명","질문 요약","감지 의도","호출 Tool","참조 문서","처리 결과","상담 시간","상세"], chatLogs.map((x,i) => `<tr><td>${x.id}</td><td>${x.customer}</td><td>${x.question}</td><td>${x.intent}</td><td>${x.tools}</td><td>${x.docs}</td><td>${badge(x.result)}</td><td>${x.time}</td><td><button class="btn soft" data-chat="${i}">상세</button></td></tr>`))}</article><aside class="panel ai-panel"><h2>AI 처리 타임라인</h2><div class="ai-flow">${["사용자 질문 수신","의도 분석: 납부 문의","Tool Calling: getPaymentStatus","RAG 검색: 납부/연체 안내 문서","AI 답변 생성","상담 로그 저장"].map((t,i) => `<div class="ai-step"><b>${i+1}</b><span>${t}</span></div>`).join("")}</div></aside></section>`);
+document.querySelectorAll("[data-chat]").forEach(btn => btn.onclick = () => {
+  const x = chatLogs[btn.dataset.chat];
+  openModal(`${x.id} 상담 로그`, `<h3>고객 질문 원문</h3><p>${x.question}</p><h3>AI 답변 전문</h3><p>${x.customer} 고객님의 계약 정보를 확인했습니다. 필요한 조치와 다음 단계를 안내드립니다.</p><h3>RAG 검색 결과</h3><p>${x.docs}, 유사도 0.88</p><h3>호출 Tool</h3><p>${x.tools}</p><h3>생성된 티켓</h3><p>${x.result === "티켓 생성" ? "TCK-0009" : "없음"}</p>`);
+});
+bindSearch("#q", "tbody tr");

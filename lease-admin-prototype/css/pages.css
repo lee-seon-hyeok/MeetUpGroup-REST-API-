@@ -1,0 +1,16 @@
+.hero-note { padding: 14px 16px; border-left: 4px solid var(--blue); background: #eff6ff; border-radius: 8px; color: #24415f; }
+.ai-panel { border-color: #d8ccff; background: #fbfaff; }
+.danger-panel { border-color: #fecaca; background: #fffafa; }
+.accident-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.severity-low { background: var(--green-soft); color: var(--green); }
+.severity-medium { background: var(--amber-soft); color: var(--amber); }
+.severity-high, .severity-critical { background: var(--red-soft); color: var(--red); }
+.rag-result { margin-top: 12px; padding: 12px; border: 1px dashed var(--blue); border-radius: 8px; background: #f8fbff; }
+.status-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.document-test { display: grid; gap: 8px; margin-top: 14px; }
+.two-column-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ai-flow { display: grid; gap: 10px; }
+.ai-step { display: grid; grid-template-columns: 38px 1fr; align-items: start; gap: 10px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.ai-step b { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; background: var(--violet-soft); color: var(--violet); }
+.metric-card { padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.metric-card strong { display: block; margin-top: 5px; font-size: 24px; }
