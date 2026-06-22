@@ -87,7 +87,9 @@ public class SecurityConfig {
                 "/api/members/signup",
                 "/api/members/login",
                 "/swagger-ui/**",
-                "/v3/api-docs/**"
+                "/v3/api-docs/**",
+                "/swagger-ui.html",
+                "/webjars/**"
             ).permitAll()
             // Board 생성/삭제는 ADMIN만 가능
             .requestMatchers("/api/boards").hasRole("ADMIN")
