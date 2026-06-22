@@ -67,6 +67,15 @@ public class SecurityConfig {
   public SecurityFilterChain filterChain(HttpSecurity http,
                                          AuthenticationManager authenticationManager) throws Exception {
     http
+        //cors 설정
+        .cors(cors -> cors.configurationSource(request -> {
+          var config = new org.springframework.web.cors.CorsConfiguration();
+          config.setAllowedOrigins(java.util.List.of("*"));
+          config.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
+          config.setAllowedHeaders(java.util.List.of("*"));
+          return config;
+        }))
+
         // CSRF 비활성화 (JWT 방식은 세션 안 쓰므로 불필요)
         .csrf(csrf -> csrf.disable())
 
