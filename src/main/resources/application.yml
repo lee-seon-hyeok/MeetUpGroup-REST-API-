@@ -2,10 +2,9 @@ spring:
   application:
     name: study308
 
-  datasource:
-    url: jdbc:mysql://localhost:3309/jwbook?serverTimezone=UTC
-    username: root
-    password: 1111
+  url: ${SPRING_DATASOURCE_URL}
+  username: ${SPRING_DATASOURCE_USERNAME}
+  password: ${SPRING_DATASOURCE_PASSWORD}
 
   jpa:
     hibernate:
