@@ -10,3 +10,16 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+jwt:
+  secret: study308-secret-key-must-be-at-least-256-bits!!
+
+  server:
+    address: 0.0.0.0
+    port: 8080
+
+    springdoc:
+      swagger-ui:
+        path: /swagger-ui.html
+      api-docs:
+        path: /v3/api-docs
